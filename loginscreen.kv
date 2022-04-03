@@ -1,0 +1,81 @@
+<LoginScreen>
+    id: loginscreen
+    name: loginscreen
+    FloatLayout:
+        orientation: 'vertical' 
+        MDToolbar:
+            title: "Consulta Peços Mercury"
+            left_action_items: [["menu"]]
+            elevation: 9
+            pos_hint: {'top': 1}
+        MDLabel:
+            id: headerlogin
+            text: "Login - Usuario Mercury"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+            size_hint_x: .6
+            size_hint_y: .06
+            halign: "center"
+        MDLabel:
+            text: "Codigo"
+            pos_hint: {'center_x': 0.22, 'center_y': 0.8}
+            size_hint_x: .5
+            size_hint_y: .06
+            halign: "center"
+        MDTextField:
+            id: login
+            hind_text: "Codigo"
+            text_color: app.theme_cls.primary_color
+            pos_hint:{'center_x': 0.5, 'center_y': 0.75}
+            size_hint_x: .6
+            icon_right: "email"
+            icon_right_color: app.theme_cls.primary_color
+        MDLabel:
+            text: "Senha"
+            pos_hint: {'center_x': 0.22, 'center_y': 0.70}
+            size_hint_x: .5
+            size_hint_y: .06
+            halign: "center"
+        MDTextField:
+            id: senha
+            hind_text: "senha"
+            pos_hint:{'center_x': 0.5, 'center_y': 0.65}
+            size_hint_x: .6
+            icon_right: 'eye'
+            icon_right_color: app.theme_cls.primary_color
+            password: True    
+        MDLabel:
+            text: "Pesquisa"
+            pos_hint: {'center_x': 0.22, 'center_y': 0.50}
+            size_hint_x: .500
+            size_hint_y: .06
+            halign: "center"
+        MDTextField:
+            id: pesquisa
+            hind_text: "pesquisa"
+            pos_hint:{'center_x': 0.5, 'center_y': 0.45}
+            size_hint_x: .6
+            icon_right: 'magnify'
+            icon_right_color: app.theme_cls.primary_color
+
+        Button:
+            id: btn
+            text: "OK"
+            on_press: result.text = str(app.buttonClicked(login.text, senha.text, pesquisa.text))
+            pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+            size_hint_x: .6
+            size_hint_y: .06
+            halign: "center"
+
+        MDFillRoundFlatButton:
+            text: "Cancelar"
+            on_press: app.root.current = 'resultscreen' 
+            pos_hint: {'center_x': 0.5, 'center_y': 0.08}
+            size_hint_x: .6
+            size_hint_y: .06
+            halign: "center"
+        MDLabel:
+            id: result
+            pos_hint: {'center_x': 0.22, 'center_y': 0.40}
+            size_hint_x: .500
+            size_hint_y: .06
+            halign: "center"
